@@ -59,7 +59,7 @@ function App() {
       }
       else {
         setData(null);
-        setError("No city found. Please choose another one");
+        setError("No city found. Please choose another one.");
       }
 
     } catch (error) {
