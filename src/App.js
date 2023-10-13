@@ -89,7 +89,7 @@ function App() {
                 </Button>
               </div>
               <Form.Text id="passwordHelpBlock" muted>
-                Please enter city name
+                Please enter city name.
               </Form.Text>
             </form>
             {data && (<><WeatherBody data={data} /></>)}
