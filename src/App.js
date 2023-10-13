@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import WeatherBody from './component/WeatherBody';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 function App() {
   // const [lat, setLat] = useState(null);
@@ -14,7 +15,7 @@ function App() {
 
   const setFormValue = (e) => {
     setCity({ ...city, [e.target.name]: e.target.value });
-    console.log(city);
+    // console.log(city);
   };
 
 
@@ -47,26 +48,41 @@ function App() {
 
 
 
+  // const handleCity = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await fetch(`${process.env.REACT_APP_API_URL}/weather/?q=${city.city}&APPID=${process.env.REACT_APP_API_KEY}&units=metric`)
+  //     if (response.status !== 404) {
+  //       const data = await response.json();
+  //       console.log(data);
+  //       setData(data);
+  //       setError("");
+  //     }
+  //     else {
+  //       setData(null);
+  //       setError("No city found. Please type another one.");
+  //     }
+
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  const client = axios.create({
+    baseURL: `${process.env.REACT_APP_API_URL}/weather`
+  });
+
   const handleCity = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/weather/?q=${city.city}&APPID=${process.env.REACT_APP_API_KEY}&units=metric`)
-      if (response.status !== 404) {
-        const data = await response.json();
-        console.log(data);
-        setData(data);
-        setError("");
-      }
-      else {
-        setData(null);
-        setError("No city found. Please type another one.");
-      }
-
+      const response = await client.get(`/?q=${city.city}&APPID=${process.env.REACT_APP_API_KEY}&units=metric`)
+      setData(response.data);
+      setError(null);
     } catch (error) {
-      console.log(error);
+      setError(error.response.data.message);
+      setData(null);
     }
   }
-
 
   return (
     <section className="vh-100">

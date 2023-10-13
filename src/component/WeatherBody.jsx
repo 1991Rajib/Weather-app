@@ -17,7 +17,7 @@ const WeatherBody = ({ data }) => {
 
   useEffect(() => {
     weatherData()
-  },[])
+  },[data])
 
   return (
 
