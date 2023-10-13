@@ -24,9 +24,10 @@ const WeatherBody = ({ data }) => {
 
             <div id="wrapper-bg" className="card text-white bg-image shadow-4-strong">
 
-                  {/* <!-- Main current data --> */}
+              {/* <!-- Main current data --> */}
               <div className="card-header p-4 border-0">
                 <div className="text-center mb-3">
+                  <small className="mb-1" id="wrapper-name">{data.sys.country}</small>
                   <p className="h2 mb-1" id="wrapper-name">{data.name}</p>
                   <p className="display-1 mb-1" id="wrapper-temp">{data.main?.temp}<sup><small>&deg;c</small></sup></p>
                   <p className="mb-1" id="wrapper-description"><img src={`https://openweathermap.org/img/wn/${wdata?.icon}.png`} alt=""/>{wdata?.description}</p>
