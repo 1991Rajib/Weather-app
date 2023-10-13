@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WeatherBody from './component/WeatherBody';
 import Form from 'react-bootstrap/Form';
