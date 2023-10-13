@@ -59,7 +59,7 @@ function App() {
       }
       else {
         setData(null);
-        setError("No city found. Please choose another one.");
+        setError("No city found. Please type another one.");
       }
 
     } catch (error) {
@@ -89,7 +89,7 @@ function App() {
                 </Button>
               </div>
               <Form.Text id="passwordHelpBlock" muted>
-                Please enter city name.
+                Please enter city name to get weather details.
               </Form.Text>
             </form>
             {data && (<><WeatherBody data={data} /></>)}
