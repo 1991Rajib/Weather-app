@@ -28,9 +28,9 @@ const WeatherBody = ({ data }) => {
               <div className="card-header p-4 border-0">
                 <div className="text-center mb-3">
                   <p className="h2 mb-1" id="wrapper-name">{data.name}</p>
-                  <p className="display-1 mb-1" id="wrapper-temp">{data.main?.temp}<sup><small>.c</small></sup></p>
+                  <p className="display-1 mb-1" id="wrapper-temp">{data.main?.temp}<sup><small>&deg;c</small></sup></p>
                   <p className="mb-1" id="wrapper-description"><img src={`https://openweathermap.org/img/wn/${wdata?.icon}.png`} alt=""/>{wdata?.description}</p>
-                  <span className="">Feels Like: <span id="wrapper-pressure">{data.main?.feels_like}<sup><small>.c</small></sup></span></span>
+                  <span className="">Feels Like: <span id="wrapper-pressure">{data.main?.feels_like}<sup><small>&deg;c</small></sup></span></span>
                   <span className="mx-2">|</span>
                   <span className="">Pressure: <span id="wrapper-pressure">{data.main?.pressure}</span></span>
                   <span className="mx-2">|</span>
@@ -39,21 +39,21 @@ const WeatherBody = ({ data }) => {
               </div>
 
               {/* <!-- Hourly forecast --> */}
-              {/* <div className="card-body p-4 border-top border-bottom mb-2">
+              <div className="card-body p-4 border-top border-bottom mb-2">
                 <div className="row text-center">
-                  <div className="col-2">
-                    <strong className="d-block mb-2">Now</strong>
-                    <img id="wrapper-icon-hour-now" src="" className="" alt="" />
-                    <strong className="d-block" id="wrapper-hour-now"></strong>
+                  <div className="col-6">
+                    <strong className="d-block mb-2">Sunrise</strong>
+                    {/* <img id="wrapper-icon-hour-now" src="" className="" alt="" /> */}
+                    <strong className="d-block" id="wrapper-hour-now">{ new Date(data.sys.sunrise * 1000).toLocaleTimeString('en-IN')}</strong>
                   </div>
 
-                  <div className="col-2">
-                    <strong className="d-block mb-2" id="wrapper-time1"></strong>
-                    <img id="wrapper-icon-hour1" src="" className="" alt="" />
-                    <strong className="d-block" id="wrapper-hour1"></strong>
+                  <div className="col-6">
+                    <strong className="d-block mb-2" id="wrapper-time1">Sunset</strong>
+                    {/* <img id="wrapper-icon-hour1" src="" className="" alt="" /> */}
+                    <strong className="d-block" id="wrapper-hour1">{ new Date(data.sys.sunset * 1000).toLocaleTimeString('en-IN')}</strong>
                   </div>
 
-                  <div className="col-2">
+                  {/* <div className="col-2">
                     <strong className="d-block mb-2" id="wrapper-time2"></strong>
                     <img id="wrapper-icon-hour2" src="" className="" alt="" />
                     <strong className="d-block" id="wrapper-hour2"></strong>
@@ -75,9 +75,9 @@ const WeatherBody = ({ data }) => {
                     <strong className="d-block mb-2" id="wrapper-time5"></strong>
                     <img id="wrapper-icon-hour5" src="" className="" alt="" />
                     <strong className="d-block" id="wrapper-hour5"></strong>
-                  </div>
+                  </div> */}
                 </div>
-              </div> */}
+              </div>
 
               {/* <!-- Daily forecast --> */}
               {/* <div className="card-body px-5">
